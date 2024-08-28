@@ -1,15 +1,10 @@
-﻿using System;
-
-namespace NoviceChallenges
+﻿namespace NoviceChallenges
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] arrayInt = { 10,10,10 };
-            Console.WriteLine(ArraySum(arrayInt));
-
-            Console.WriteLine(SwapEnds("string"));
+            
         }
 
         // 1. Return the sum of two numbers.
@@ -90,6 +85,7 @@ namespace NoviceChallenges
         public static bool IsPrime(int number)
         {
             if (number <= 1) return false;
+            // Return false if the given number is divisible by any numbers leading up to it, if not return true.
             for (int i = 2; i < number; i++)
             {
                 if (number % i == 0) return false;
@@ -100,6 +96,7 @@ namespace NoviceChallenges
         // 9. Return the nth Fibonacci number.
         public static int Fibonacci(int n)
         {
+            // base case: n is less than or equal to 1.
             if (n <= 1) return n;
             else
             {
@@ -111,6 +108,7 @@ namespace NoviceChallenges
         public static int LargestInArray(int[] numbers)
         {
             int largest = numbers[0];
+            // Loop through the array to find the largest number.
             for (int i = 1; i < numbers.Length; i++)
             {
                 if (numbers[i] > largest) largest = numbers[i];
@@ -137,7 +135,7 @@ namespace NoviceChallenges
         public static int CharCount(string s, char c)
         {
             int count = 0;
-            // for every char in the string, check if the char c is within it, and if so increment count
+            // for every char in the string, check if the char c is within it, and if so increment count.
             foreach (char character in s) {
                 if (character == c) count++;
             }
@@ -155,13 +153,14 @@ namespace NoviceChallenges
         {
             if (s.Length <= 1) return s;
             
+            // Store data within two char variables, create a char array to switch the first and last char around, and return it as a string.
             char firstChar = s[0];
             char lastChar = s[s.Length - 1];
             char[] sArray = s.ToArray();
             sArray[0] = lastChar;
             sArray[sArray.Length - 1] = firstChar;
             
-            return "";
+            return new string(sArray);
         }
     }
 }
